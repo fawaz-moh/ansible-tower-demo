@@ -3,16 +3,23 @@
   tasks:
     - name: Install Nginx
       yum:
-       name: nginx
-       state: present
+        name: nginx
+        state: present
+      become: yes
+      become_method: sudo
+      become_user: root
     
     - name: allow all access to tcp port 80
       firewalld:
-       port: 80/tcp
-       zone: public
-       state: enabled
+        port: 80/tcp
+        zone: public
+        state: enabled
+      become_method: sudo
+      become_user: root
 
     - name: Start Nginx
       service:
-       name: nginx
-       state: started
+        name: nginx
+        state: started
+      become_method: sudo
+      become_user: root
