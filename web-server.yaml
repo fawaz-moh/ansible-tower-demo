@@ -1,9 +1,9 @@
 - name: Install Nginx
   hosts: all
   tasks:
-    - name: Install Nginx
+    - name: Install httpd
       yum:
-        name: nginx
+        name: httpd
         state: present
       become: yes
       become_method: sudo
@@ -19,7 +19,7 @@
 
     - name: Start Nginx
       service:
-        name: nginx
+        name: httpd
         state: started
       become_method: sudo
       become_user: root
