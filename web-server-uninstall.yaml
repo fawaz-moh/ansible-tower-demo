@@ -1,0 +1,7 @@
+- name: uninstall httpd
+  hosts: all
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: absent
